@@ -2,7 +2,7 @@
     <main>
         <section class="galeri-header">
             <div class="container">
-                <h1>Galeri Parallaxnet</h1>
+                <h1 id="galeri-title">Galeri Parallaxnet</h1>
             </div>
         </section>
 
@@ -23,7 +23,7 @@
         </section>
 
         {{-- Lightbox --}}
-        <div id="lightbox" class="lightbox" role="dialog" aria-modal="true">
+        <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="galeri-title">
             <button id="lightbox-close" class="lightbox__close" aria-label="Tutup">&times;</button>
             <button id="lightbox-prev" class="lightbox__arrow lightbox__arrow--prev" aria-label="Sebelumnya">&#8592;</button>
             <img id="lightbox-img" class="lightbox__img" src="" alt="">

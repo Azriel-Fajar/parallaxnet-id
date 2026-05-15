@@ -1,4 +1,6 @@
 (function () {
+    if (!document.getElementById('lightbox')) return;
+
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const btnClose = document.getElementById('lightbox-close');
@@ -7,19 +9,23 @@
 
     const items = Array.from(document.querySelectorAll('.masonry-item'));
     let current = 0;
+    let opener = null;
 
-    function open(index) {
+    function open(index, trigger) {
         current = index;
+        opener = trigger || null;
         lightboxImg.src = items[current].dataset.src;
         lightbox.classList.add('is-open');
         updateArrows();
         document.body.style.overflow = 'hidden';
+        btnClose.focus();
     }
 
     function close() {
         lightbox.classList.remove('is-open');
         lightboxImg.src = '';
         document.body.style.overflow = '';
+        if (opener) opener.focus();
     }
 
     function prev() {
@@ -36,7 +42,15 @@
     }
 
     items.forEach(function (item, i) {
-        item.addEventListener('click', function () { open(i); });
+        item.setAttribute('tabindex', '0');
+        item.setAttribute('role', 'button');
+        item.addEventListener('click', function () { open(i, item); });
+        item.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                open(i, item);
+            }
+        });
     });
 
     btnClose.addEventListener('click', close);

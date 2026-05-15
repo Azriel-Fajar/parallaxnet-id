@@ -1,18 +1,3 @@
-:root {
-    --primary: #eff4f8;
-    --secondary: #1d466e;
-    --accent: #d9a61f;
-    --white: #f8f9fa;
-    --con-padding: clamp(2rem, 6vw, 5rem);
-    --section-v: clamp(1.5rem, 3vw, 2rem);
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
     background: var(--primary);
     color: #1f2328;
