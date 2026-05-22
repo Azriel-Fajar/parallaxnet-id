@@ -6,7 +6,7 @@
 #   ~/public_html/          web root, contains only the contents of public/
 #
 # Run from anywhere; the script switches to ~/parallaxnet first.
-set -euo pipefail
+set -eu
 
 APP_DIR="$HOME/parallaxnet"
 PUBLIC_DIR="$HOME/public_html"
