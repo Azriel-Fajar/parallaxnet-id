@@ -98,11 +98,8 @@
                 const sliderRight = sliderLeft + displayWidth;
 
                 [{ slide: slides[prevIdx], side: 'left' }, { slide: slides[nextIdx], side: 'right' }].forEach(({ slide, side }) => {
-                    const iw = parseFloat(slide.dataset.width);
-                    const ih = parseFloat(slide.dataset.height);
+                    const peekW = wrapper.clientWidth * 0.13;
                     const peekH = displayHeight;
-                    const peekW = peekH * (iw / ih);
-                    // 10% of peek width visible; remaining 90% slides behind active (covered by slider z-index)
                     const leftPos = side === 'left'
                         ? sliderLeft - peekW * 0.10
                         : sliderRight - peekW * 0.90;
