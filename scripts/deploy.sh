@@ -14,7 +14,7 @@ PUBLIC_DIR="$HOME/public_html"
 cd "$APP_DIR"
 
 # Dependencies + DB
-~/bin/composer install --no-dev --optimize-autoloader
+~/bin/composer install --no-dev --optimize-autoloader --no-scripts
 php artisan migrate --force
 php artisan db:seed --class=CourseCategorySeeder --force
 php artisan db:seed --class=CourseSeeder --force
