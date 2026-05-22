@@ -1,0 +1,45 @@
+<h2>Full gallery page layout?</h2>
+<p class="subtitle">URL would be <code>/galeri</code> — shows all documentation photos.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="masonry" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0d0d1a;padding:12px;height:120px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;align-items:start;">
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="background:#2a2a4a;border-radius:3px;height:45px;"></div>
+        <div style="background:#2a2a4a;border-radius:3px;height:30px;"></div>
+        <div style="background:#2a2a4a;border-radius:3px;height:20px;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="background:#2a2a4a;border-radius:3px;height:25px;"></div>
+        <div style="background:#2a2a4a;border-radius:3px;height:50px;"></div>
+        <div style="background:#2a2a4a;border-radius:3px;height:20px;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:5px;">
+        <div style="background:#2a2a4a;border-radius:3px;height:35px;"></div>
+        <div style="background:#2a2a4a;border-radius:3px;height:25px;"></div>
+        <div style="background:#2a2a4a;border-radius:3px;height:30px;"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>Masonry grid</h3>
+      <p>Variable heights — Pinterest-style, modern look. Matches existing homepage gallery style.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="uniform" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0d0d1a;padding:12px;height:120px;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:1fr 1fr;gap:5px;">
+      <div style="background:#2a2a4a;border-radius:3px;"></div>
+      <div style="background:#2a2a4a;border-radius:3px;"></div>
+      <div style="background:#2a2a4a;border-radius:3px;"></div>
+      <div style="background:#2a2a4a;border-radius:3px;"></div>
+      <div style="background:#2a2a4a;border-radius:3px;"></div>
+      <div style="background:#2a2a4a;border-radius:3px;"></div>
+    </div>
+    <div class="card-body">
+      <h3>Uniform grid</h3>
+      <p>Equal-size squares — clean, consistent (recommended)</p>
+    </div>
+  </div>
+
+</div>

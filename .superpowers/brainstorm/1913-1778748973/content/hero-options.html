@@ -1,0 +1,84 @@
+<h2>Hero Section Redesign</h2>
+<p class="subtitle">Pick a direction for the modern hero. All use the existing bg.jpg + Poppins headings.</p>
+
+<div class="cards">
+
+  <div class="card" data-choice="A" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#1d466e;height:220px;position:relative;overflow:hidden;border-radius:8px;">
+        <!-- Parallax layers simulated with opacity divs -->
+        <div style="position:absolute;inset:0;background:url('http://127.0.0.1:8000/images/bg.jpg') center/cover;opacity:0.5;transform:scale(1.15);"></div>
+        <div style="position:absolute;inset:0;background:linear-gradient(120deg,rgba(29,70,110,0.85) 40%,transparent);"></div>
+        <!-- Floating geometric accent -->
+        <div style="position:absolute;top:16px;right:24px;width:90px;height:90px;border:3px solid rgba(217,166,31,0.5);border-radius:50%;"></div>
+        <div style="position:absolute;top:28px;right:36px;width:65px;height:65px;background:rgba(217,166,31,0.15);border-radius:50%;"></div>
+        <div style="position:absolute;bottom:20px;left:20px;right:20px;">
+          <div style="font-family:Poppins,sans-serif;font-size:18px;font-weight:700;color:#fff;line-height:1.2;text-shadow:0 2px 8px rgba(0,0,0,0.4);">Merevolusi Pendidikan<br>dengan IT Praktis</div>
+          <div style="display:flex;gap:8px;margin-top:10px;">
+            <span style="background:rgba(255,255,255,0.15);border:1.5px solid rgba(255,255,255,0.6);color:#fff;font-family:Poppins,sans-serif;font-size:10px;font-weight:600;padding:4px 12px;border-radius:999px;">Lihat Kurikulum</span>
+            <span style="background:#25D366;color:#fff;font-family:Poppins,sans-serif;font-size:10px;font-weight:600;padding:4px 12px;border-radius:999px;">Daftar via WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A — Deep Blue Parallax</h3>
+      <p>Dark gradient overlay on bg.jpg. CSS parallax scroll effect (background-attachment:fixed). Geometric circle accents (gold). Text left, crisp on mobile.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="B" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="background:#eff4f8;height:220px;position:relative;overflow:hidden;border-radius:8px;">
+        <div style="position:absolute;inset:0;background:url('http://127.0.0.1:8000/images/bg.jpg') center/cover;opacity:0.25;"></div>
+        <!-- Diagonal split -->
+        <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(29,70,110,0.92) 50%,transparent 50%);"></div>
+        <!-- Scan lines texture -->
+        <div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 3px,rgba(255,255,255,0.03) 3px,rgba(255,255,255,0.03) 4px);"></div>
+        <div style="position:absolute;top:20px;left:20px;right:55%;bottom:20px;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;">
+          <div style="font-family:Poppins,sans-serif;font-size:15px;font-weight:700;color:#fff;line-height:1.25;">Merevolusi<br>Pendidikan IT</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;">
+            <span style="background:rgba(255,255,255,0.15);border:1.5px solid #fff;color:#fff;font-family:Poppins,sans-serif;font-size:9px;font-weight:600;padding:3px 10px;border-radius:999px;">Kurikulum</span>
+            <span style="background:#d9a61f;color:#fff;font-family:Poppins,sans-serif;font-size:9px;font-weight:600;padding:3px 10px;border-radius:999px;">WhatsApp</span>
+          </div>
+        </div>
+        <!-- right side shows photo -->
+        <div style="position:absolute;top:0;left:50%;right:0;bottom:0;background:url('http://127.0.0.1:8000/images/bg.jpg') center/cover;clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%);"></div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B — Diagonal Split</h3>
+      <p>Left half dark navy with text, right half full photo. Diagonal cut line. Subtle scan-line texture. Gold accent on secondary CTA. More editorial feel.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="C" onclick="toggleSelect(this)">
+    <div class="card-image">
+      <div style="height:220px;position:relative;overflow:hidden;border-radius:8px;background:#0a1628;">
+        <!-- Animated particle grid simulation via gradient dots -->
+        <div style="position:absolute;inset:0;background:
+          radial-gradient(circle at 20% 30%, rgba(64,179,229,0.18) 0%, transparent 40%),
+          radial-gradient(circle at 80% 70%, rgba(29,70,110,0.4) 0%, transparent 40%),
+          radial-gradient(circle at 50% 50%, rgba(217,166,31,0.08) 0%, transparent 60%);"></div>
+        <div style="position:absolute;inset:0;background:url('http://127.0.0.1:8000/images/bg.jpg') center/cover;opacity:0.12;mix-blend-mode:luminosity;"></div>
+        <!-- Grid lines -->
+        <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(64,179,229,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(64,179,229,0.06) 1px,transparent 1px);background-size:30px 30px;"></div>
+        <div style="position:absolute;bottom:24px;left:20px;right:20px;">
+          <div style="font-family:Poppins,sans-serif;font-size:9px;font-weight:600;color:#40b3e5;letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;">Parallaxnet Siber Indonesia</div>
+          <div style="font-family:Poppins,sans-serif;font-size:16px;font-weight:700;color:#fff;line-height:1.2;">Merevolusi Pendidikan<br>dengan IT Praktis</div>
+          <div style="display:flex;gap:8px;margin-top:10px;">
+            <span style="background:transparent;border:1.5px solid #40b3e5;color:#40b3e5;font-family:Poppins,sans-serif;font-size:9px;font-weight:600;padding:3px 10px;border-radius:999px;">Kurikulum</span>
+            <span style="background:#25D366;color:#fff;font-family:Poppins,sans-serif;font-size:9px;font-weight:600;padding:3px 10px;border-radius:999px;">WhatsApp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C — Dark Cyber Grid</h3>
+      <p>Deep dark background, blue grid lines, glowing radial light effects. Cybersecurity aesthetic. Very modern, brand-aligned. bg.jpg as faint texture only.</p>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle" style="margin-top:1rem;">All three support CSS parallax scroll. Click to select, then tell me in the terminal.</p>

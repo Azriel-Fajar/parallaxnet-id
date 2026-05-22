@@ -1,0 +1,76 @@
+<h2>News Card Redesign</h2>
+<p class="subtitle">Pick a direction — taller cards, more modern feel</p>
+
+<div class="cards">
+
+  <!-- Option A -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="height:260px;background:#1d466e;border-radius:10px 10px 0 0;overflow:hidden;position:relative;">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1d466e 0%,#40b3e5 100%);display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:2rem;opacity:0.3;">🖼️</span>
+      </div>
+      <div style="position:absolute;bottom:0;left:0;right:0;height:50%;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);"></div>
+      <div style="position:absolute;bottom:12px;left:14px;right:14px;">
+        <span style="font-size:0.7rem;color:#40b3e5;font-family:poppins,sans-serif;font-weight:600;letter-spacing:1px;text-transform:uppercase;">Berita</span>
+      </div>
+    </div>
+    <div class="card-body" style="padding:16px 18px 20px;background:#fff;border-radius:0 0 10px 10px;">
+      <p style="font-family:poppins,sans-serif;font-size:0.95rem;font-weight:600;color:#1f2328;line-height:1.5;margin:0 0 10px;">Akselerasi Target 9 Juta Talenta Digital, Parallaxnet dan Untirta Jalin Kolaborasi LMS</p>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="width:28px;height:2px;background:#d9a61f;border-radius:2px;display:inline-block;"></span>
+        <span style="font-size:0.75rem;color:#888;font-family:poppins,sans-serif;">Dwipa Anuqrah</span>
+      </div>
+    </div>
+    <div class="card-body" style="padding:0 18px 0;background:#fff;border-radius:0 0 10px 10px;">
+      <h3 style="margin:0 0 4px;font-size:1rem;">A — Gradient Overlay</h3>
+      <p style="margin:0;color:#666;font-size:0.85rem;">Image with dark gradient at bottom, category tag, author accent line below title</p>
+    </div>
+  </div>
+
+  <!-- Option B -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="height:260px;background:#f0f4f8;border-radius:10px 10px 0 0;overflow:hidden;position:relative;">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#e8f0f8 0%,#c8dff2 100%);display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:2rem;opacity:0.3;">🖼️</span>
+      </div>
+      <div style="position:absolute;top:12px;left:14px;">
+        <span style="background:#d9a61f;color:#fff;font-size:0.65rem;font-family:poppins,sans-serif;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:20px;">Berita</span>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:0 0 10px 10px;padding:18px 18px 22px;border-top:3px solid #1d466e;">
+      <p style="font-family:poppins,sans-serif;font-size:0.95rem;font-weight:600;color:#1f2328;line-height:1.5;margin:0 0 14px;">Akselerasi Target 9 Juta Talenta Digital, Parallaxnet dan Untirta Jalin Kolaborasi LMS</p>
+      <div style="display:flex;align-items:center;justify-content:space-between;">
+        <span style="font-size:0.75rem;color:#888;font-family:poppins,sans-serif;">Dwipa Anuqrah</span>
+        <span style="font-size:0.75rem;color:#40b3e5;font-family:poppins,sans-serif;font-weight:600;">Baca →</span>
+      </div>
+    </div>
+    <div style="padding:0 18px 18px;background:#fff;border-radius:0 0 10px 10px;">
+      <h3 style="margin:8px 0 4px;font-size:1rem;">B — Bold Border Top</h3>
+      <p style="margin:0;color:#666;font-size:0.85rem;">Pill badge on image, navy top border on content area, "Baca →" CTA link</p>
+    </div>
+  </div>
+
+  <!-- Option C -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="height:260px;background:#1d466e;border-radius:10px;overflow:hidden;position:relative;margin:10px 10px 0;">
+      <div style="width:100%;height:100%;background:linear-gradient(135deg,#1d466e 0%,#40b3e5 100%);display:flex;align-items:center;justify-content:center;">
+        <span style="font-size:2rem;opacity:0.3;">🖼️</span>
+      </div>
+    </div>
+    <div style="background:#fff;border-radius:0 0 12px 12px;padding:16px 18px 20px;margin:0;">
+      <span style="font-size:0.7rem;color:#d9a61f;font-family:poppins,sans-serif;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">● Berita</span>
+      <p style="font-family:poppins,sans-serif;font-size:0.95rem;font-weight:600;color:#1f2328;line-height:1.5;margin:8px 0 12px;">Akselerasi Target 9 Juta Talenta Digital, Parallaxnet dan Untirta Jalin Kolaborasi LMS</p>
+      <div style="display:flex;align-items:center;gap:6px;">
+        <div style="width:24px;height:24px;border-radius:50%;background:#40b3e5;display:flex;align-items:center;justify-content:center;">
+          <span style="font-size:0.6rem;color:#fff;font-weight:bold;">D</span>
+        </div>
+        <span style="font-size:0.75rem;color:#666;font-family:poppins,sans-serif;">Dwipa Anuqrah</span>
+      </div>
+    </div>
+    <div style="padding:8px 18px 18px;background:#fff;border-radius:0 0 12px 12px;">
+      <h3 style="margin:0 0 4px;font-size:1rem;">C — Floating Image</h3>
+      <p style="margin:0;color:#666;font-size:0.85rem;">Image floats with margin, dot-label category, avatar chip for author</p>
+    </div>
+  </div>
+
+</div>

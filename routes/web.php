@@ -19,7 +19,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tentang-kami', [HomeController::class, 'tentangKami'])->name('tentangKami');
 Route::get('/berita', [NewsController::class, 'index'])->name('berita');
-Route::get('/genius-center', [HomeController::class, 'genius'])->name('genius');
 Route::get('/kursus', [HomeController::class, 'allCourses'])->name('courses.all');
 Route::get('/galeri', [GalleriController::class, 'index'])->name('galeri');
 
@@ -72,7 +71,10 @@ Route::middleware(['auth', Admin::class, PreventBackHistory::class])->prefix('ad
     Route::get('/testimoni', [AdminController::class, 'testimonials'])->name('admin.testimonials');
     Route::get('/faq', [AdminController::class, 'faqs'])->name('admin.faqs');
 
-    // Back-compat: old /admin/admin URL
+    // Back-compat: redirect /admin/admin → /admin (dashboard).
+    // Inside prefix('admin'), the path '/admin' resolves to the full URL /admin/admin,
+    // while the redirect target '/admin' is an absolute path pointing to the dashboard.
+    // This is NOT a loop — source is /admin/admin, destination is /admin.
     Route::redirect('/admin', '/admin');
 
     Route::post('/upload-news', [AdminController::class, 'uploadNews'])->name('admin.upload.news');
@@ -117,5 +119,5 @@ Route::middleware(['auth', Admin::class, PreventBackHistory::class])->prefix('ad
 
 // Auth Routes
 Route::get('/login', [AuthController::class, 'showLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit')->middleware('throttle:5,1');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
