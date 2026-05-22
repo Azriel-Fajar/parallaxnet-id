@@ -6,19 +6,10 @@
                 <button class="nav-btn prev" id="prev">&#10094;</button>
 
                 @foreach ($images as $item)
-                    @php
-                        $imagePath = public_path('storage/' . $item->filename);
-                        if (file_exists($imagePath)) {
-                            [$width, $height] = getimagesize($imagePath);
-                        } else {
-                            $width = 800;
-                            $height = 450;
-                        }
-                    @endphp
-
-                    <div class="slide" data-width="{{ $width }}" data-height="{{ $height }}">
+                    <div class="slide" data-width="0" data-height="0">
                         <a href="{{ route('kurikulum') }}">
-                            <img src="{{ asset('storage/' . $item->filename) }}" alt="{{ $item->filename }}">
+                            <img src="{{ asset('storage/' . $item->filename) }}" alt="{{ $item->filename }}"
+                                 onload="this.closest('.slide').dataset.width=this.naturalWidth;this.closest('.slide').dataset.height=this.naturalHeight;">
                         </a>
                     </div>
                 @endforeach
@@ -169,8 +160,16 @@
             if (slides.length > 1) startAutoScroll();
         }, { passive: true });
 
-        showSlide();
-        if (slides.length > 1) startAutoScroll();
+        // Wait for all slide images to report natural dimensions before first render
+        const allImgs = Array.from(slides).map(s => s.querySelector('img')).filter(Boolean);
+        const waitForImages = allImgs.map(img => img.complete
+            ? Promise.resolve()
+            : new Promise(r => { img.addEventListener('load', r); img.addEventListener('error', r); })
+        );
+        Promise.all(waitForImages).then(() => {
+            showSlide();
+            if (slides.length > 1) startAutoScroll();
+        });
 
         window.addEventListener("resize", showSlide);
     });
