@@ -97,12 +97,15 @@
                 const sliderLeft = (wrapper.clientWidth - displayWidth) / 2;
                 const sliderRight = sliderLeft + displayWidth;
 
+                const PEEK_VISIBLE = 60; // px visible outside active slide
                 [{ slide: slides[prevIdx], side: 'left' }, { slide: slides[nextIdx], side: 'right' }].forEach(({ slide, side }) => {
-                    const peekW = wrapper.clientWidth * 0.13;
+                    const peekW = PEEK_VISIBLE * 3; // wider than visible so image isn't squished
                     const peekH = displayHeight;
+                    // left peek: right edge = sliderLeft + PEEK_VISIBLE (peeks out from left of active)
+                    // right peek: left edge = sliderRight - PEEK_VISIBLE (peeks out from right of active)
                     const leftPos = side === 'left'
-                        ? sliderLeft - peekW * 0.10
-                        : sliderRight - peekW * 0.90;
+                        ? sliderLeft + PEEK_VISIBLE - peekW
+                        : sliderRight - PEEK_VISIBLE;
 
                     wrapper.appendChild(slide);
                     slide.classList.add(side === 'left' ? 'peek-left' : 'peek-right');
@@ -113,6 +116,9 @@
                     slide.style.transform = 'translateY(-50%)';
                     slide.style.left = `${leftPos}px`;
                     slide.style.zIndex = '1';
+                    slide.style.overflow = 'hidden';
+                    const img = slide.querySelector('img');
+                    if (img) { img.style.width = '100%'; img.style.height = '100%'; img.style.objectFit = 'cover'; img.style.objectPosition = side === 'left' ? 'right center' : 'left center'; }
                 });
             }
 
