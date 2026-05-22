@@ -83,7 +83,7 @@
             const imgWidth = parseFloat(active.dataset.width);
             const imgHeight = parseFloat(active.dataset.height);
             const maxHeight = window.innerHeight * 0.75;
-            const maxWidth = wrapper.clientWidth * 0.84;
+            const maxWidth = Math.min(wrapper.clientWidth * 0.65, 800);
             const { w: displayWidth, h: displayHeight } = calcDisplay(imgWidth, imgHeight, maxWidth, maxHeight);
 
             slider.style.width = `${displayWidth}px`;
@@ -97,15 +97,15 @@
                 const sliderLeft = (wrapper.clientWidth - displayWidth) / 2;
                 const sliderRight = sliderLeft + displayWidth;
 
-                const PEEK_VISIBLE = 60; // px visible outside active slide
                 [{ slide: slides[prevIdx], side: 'left' }, { slide: slides[nextIdx], side: 'right' }].forEach(({ slide, side }) => {
-                    const peekW = PEEK_VISIBLE * 3; // wider than visible so image isn't squished
+                    const iw = parseFloat(slide.dataset.width);
+                    const ih = parseFloat(slide.dataset.height);
                     const peekH = displayHeight;
-                    // left peek: right edge = sliderLeft + PEEK_VISIBLE (peeks out from left of active)
-                    // right peek: left edge = sliderRight - PEEK_VISIBLE (peeks out from right of active)
+                    const peekW = peekH * (iw / ih);
+                    // 10% of peek width visible; remaining 90% slides behind active
                     const leftPos = side === 'left'
-                        ? sliderLeft + PEEK_VISIBLE - peekW
-                        : sliderRight - PEEK_VISIBLE;
+                        ? sliderLeft - peekW * 0.10
+                        : sliderRight - peekW * 0.90;
 
                     wrapper.appendChild(slide);
                     slide.classList.add(side === 'left' ? 'peek-left' : 'peek-right');
@@ -116,9 +116,6 @@
                     slide.style.transform = 'translateY(-50%)';
                     slide.style.left = `${leftPos}px`;
                     slide.style.zIndex = '1';
-                    slide.style.overflow = 'hidden';
-                    const img = slide.querySelector('img');
-                    if (img) { img.style.width = '100%'; img.style.height = '100%'; img.style.objectFit = 'cover'; img.style.objectPosition = side === 'left' ? 'right center' : 'left center'; }
                 });
             }
 
